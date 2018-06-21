@@ -17,9 +17,6 @@ var pickedColor = pickRandColor();
 //All declarations
 RGBLabel.textContent = pickedColor;
 
-
-
-// All functions to make game work
 for(var i = 0; i < squares.length; i++){
   squares[i].style.backgroundColor = colors[i];
 
@@ -38,13 +35,14 @@ for(var i = 0; i < squares.length; i++){
 }
 
 
+// All functions to make game work
+
 function changeAllColors(color){
   for(var i = 0; i < squares.length; i++){
     this.squares[i].style.backgroundColor = color;
     reloadPage.textContent = "Play again?"
   }
 }
-
 
 
 function pickRandColor() {
@@ -54,7 +52,7 @@ function pickRandColor() {
 
 
 function generateRandColors(len){
-  var arr = []
+  var arr = [];
 
   for(var i = 0; i < len; i++){
     arr.push(randColor());
@@ -70,7 +68,7 @@ function randColor(){
 
 reloadPage.addEventListener("click", function(){
   this.textContent = "NEW COLORS";
-  message.textContent = "Try Again";
+  message.textContent = "Guess";
   colors = generateRandColors(6);
   pickedColor = pickRandColor();
   RGBLabel.textContent = pickedColor;
@@ -83,7 +81,17 @@ reloadPage.addEventListener("click", function(){
 
 
 easy.addEventListener("click", function(){
-  alert("clicked");
+  colors = generateRandColors(3);
+  pickedColor = pickRandColor();
+  RGBLabel.textContent = pickedColor;
+  for(var i = 0; i < 3; i++){
+    squares[i].style.backgroundColor = colors[i];
+  }
+  squares[3].style.backgroundColor = "#232223";
+  squares[4].style.backgroundColor = "#232223";
+  squares[5].style.backgroundColor = "#232223";
+
+
 });
 
 
@@ -91,6 +99,12 @@ easy.addEventListener("click", function(){
 
 
 hard.addEventListener("click", function(){
-  alert("clicked");
+  message.textContent = "Guess";
+  colors = generateRandColors(6);
+  pickedColor = pickRandColor();
+  RGBLabel.textContent = pickedColor;
+  for(var i = 0; i < squares.length; i++){
+    squares[i].style.backgroundColor = colors[i];
+  }
 });
 
