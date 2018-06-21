@@ -1,0 +1,37 @@
+
+
+
+
+.title{
+  width: 100%;
+  background-color: lightblue;
+  text-align: center;
+  margin: auto;
+
+}
+
+.square{
+  width: 30%;
+  background: red;
+  padding-bottom:30%;
+  float: left;
+  margin: 1%;
+
+}
+
+.controls{
+  background-color: white;
+  text-align: center;
+  height: 30px;
+}
+
+
+.squareContainer{
+  width: 40%;
+  margin: auto;
+
+
+}
+body{
+  background-color: #232223;
+}
