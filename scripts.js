@@ -7,7 +7,7 @@ var message = document.getElementById("response");
 var reloadPage = document.getElementById("newColorButton");
 var easy = document.getElementById("easyMode");
 var hard = document.getElementById("hardMode");
-
+var mode = true;
 
 //All variables made here
 var colors = generateRandColors(6);
@@ -22,7 +22,6 @@ for(var i = 0; i < squares.length; i++){
 
   squares[i].addEventListener("click", function(){
     var clickedColor = this.style.backgroundColor;
-
     if (clickedColor === pickedColor){
       message.textContent = "Correct!!!";
       changeAllColors(pickedColor);
@@ -37,11 +36,40 @@ for(var i = 0; i < squares.length; i++){
 
 // All functions to make game work
 
-function changeAllColors(color){
+function setup(num){
+  message.textContent = "GUESS!";
+  colors = generateRandColors(num);
+  pickedColor = pickRandColor();
+  RGBLabel.textContent = pickedColor;
   for(var i = 0; i < squares.length; i++){
-    this.squares[i].style.backgroundColor = color;
-    reloadPage.textContent = "Play again?"
+    squares[i].style.backgroundColor = colors[i];
   }
+  if (num===3){
+    for ( var i = 3; i <6;i++){
+      squares[i].style.backgroundColor = "#232223";
+    }
+
+  }
+}
+
+function changeAllColors(color) {
+  if (mode === true) {
+    for (var i = 0; i < squares.length; i++) {
+      this.squares[i].style.backgroundColor = color;
+      reloadPage.textContent = "Play again?"
+    }
+  }
+  else {
+    for (var i = 0; i < (squares.length / 2); i++) {
+      this.squares[i].style.backgroundColor = color;
+      reloadPage.textContent = "Play again?";
+    }
+    for (var i = 3; i < 6; i++) {
+      squares[i].style.backgroundColor = "#232223";
+    }
+
+  }
+
 }
 
 
@@ -66,45 +94,32 @@ function randColor(){
 }
 
 
+//Event listeners
 reloadPage.addEventListener("click", function(){
-  this.textContent = "NEW COLORS";
-  message.textContent = "Guess";
-  colors = generateRandColors(6);
-  pickedColor = pickRandColor();
-  RGBLabel.textContent = pickedColor;
-  for(var i = 0; i < squares.length; i++){
-    squares[i].style.backgroundColor = colors[i];
-  }
-
+  mode === false ? setup(3) : setup(6)
 });
-
 
 
 easy.addEventListener("click", function(){
-  colors = generateRandColors(3);
-  pickedColor = pickRandColor();
-  RGBLabel.textContent = pickedColor;
-  for(var i = 0; i < 3; i++){
-    squares[i].style.backgroundColor = colors[i];
-  }
-  squares[3].style.backgroundColor = "#232223";
-  squares[4].style.backgroundColor = "#232223";
-  squares[5].style.backgroundColor = "#232223";
+  mode=false;
+  this.style.backgroundColor = "#4682b4";
+  this.style.color = "#ffffff";
+  hard.style.backgroundColor = "#ffffff";
+  hard.style.color = "#4682b4";
 
-
+  setup(3);
 });
-
-
-
 
 
 hard.addEventListener("click", function(){
-  message.textContent = "Guess";
-  colors = generateRandColors(6);
-  pickedColor = pickRandColor();
-  RGBLabel.textContent = pickedColor;
-  for(var i = 0; i < squares.length; i++){
-    squares[i].style.backgroundColor = colors[i];
-  }
+  mode=true;
+  this.style.backgroundColor = "#4682b4";
+  this.style.color = "#ffffff";
+  easy.style.backgroundColor = "#ffffff";
+  easy.style.color = "#4682b4";
+
+  setup(6);
 });
+
+
 

@@ -1,14 +1,75 @@
 
 
+body{
+  background-color: #232223;
+  font-family: "Montserrat", "Avenir";
+  margin:0;
+}
 
+h1{
+  margin: 0;
+  line-height: 1.1;
+  padding:20px 0;
+}
+button{
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  height:100%;
+  font-weight:700;
+  color: steelblue;
+  letter-spacing: 1px;
+  outline: none;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+button:hover{
+  color:white;
+  background-color: steelblue;
+}
+
+#easyMode{
+  background-color: white;
+}
+
+
+#hardMode{
+  background-color: steelblue;
+  color:white;
+}
 
 .title{
   width: 100%;
-  background-color: lightblue;
+  background-color: steelblue;
   text-align: center;
-  margin: auto;
+  margin: 0;
+  color: white;
+  font-size: 200%;
 
 }
+
+#response{
+  color:steelblue;
+  display: inline-block;
+  width: 20%;
+}
+.controls{
+  background-color: white;
+  text-align: center;
+  height: 30px;
+  margin:0;
+}
+
+
+.squareContainer{
+  width: 40%;
+  margin: 20px auto;
+
+
+}
+
 
 .square{
   width: 30%;
@@ -16,22 +77,12 @@
   padding-bottom:30%;
   float: left;
   margin: 1%;
-
-}
-
-.controls{
-  background-color: white;
-  text-align: center;
-  height: 30px;
+  border-radius: 15%;
+  transition: all 0.5s;
+  -webkit-transition: background 0.5s;
+  -moz-transition: background 0.5s;
 }
 
 
-.squareContainer{
-  width: 40%;
-  margin: auto;
 
 
-}
-body{
-  background-color: #232223;
-}
